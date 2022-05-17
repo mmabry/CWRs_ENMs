@@ -72,6 +72,7 @@ for(i in 1:length(unique(alldf$name))){
   proj4string(spp_df) <- CRS("+proj=longlat +datum=WGS84")
 
   ## Create alpha hull, if disjunt distrubution use partCount > 1 and fraction < 1
+  # From Pascal! https://github.com/ptitle/rangeBuilder/blob/564b4da2ee6409389cc962fb3f2e91ae38d66467/rangeBuilder/R/getDynamicAlphaHull.R
   sphull <- rangeBuilder::getDynamicAlphaHull(x = as.data.frame(spp_df@coords),
                                               coordHeaders = c("long", "lat"),
                                               fraction = 1, # min. fraction of records we want included (e.g. 1 = 100%)
